@@ -18,13 +18,16 @@
 </section>
 <!-- 페이지 제목 섹션 End -->
 
-<!-- ======= 로그인  섹션 Start ======= -->
+<!-- ======= 마이페이지  섹션 Start ======= -->
 <section id="pages-details" class="pages-details">
 	<div class="container">
 		<div class="row gy-4 justify-content-center">
 			<div class="col-lg-8 pages-details-info p-3">
 				<form id="form" action="" method="Post" class="bg-white rounded shadow-5-strong p-5">
 					<div class="row">
+						<div class="box mb-5" style="background: #BDBDBD; margin:auto;">
+							<img class="profile" src="${root}/img/profile.png">
+						</div>
 						<div class="mb-3">
 							<label for="id">아이디</label> 
 							<input type="text" class="form-control" id="id" name="id" placeholder="" value="${userInfo.id}" readonly="readonly">
@@ -59,7 +62,7 @@
 		</div>
 	</div>
 </section>
-<!-- 로그인  섹션 End -->
+<!-- 마이페이지  섹션 End -->
 
 <script>
 	$(document).ready(function () {		
@@ -77,5 +80,19 @@
         });
 	});
 </script>
+
+<style>
+.box {
+    width: 200px;
+    height: 200px; 
+    border-radius: 70%;
+    overflow: hidden;
+}
+.profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+</style>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
