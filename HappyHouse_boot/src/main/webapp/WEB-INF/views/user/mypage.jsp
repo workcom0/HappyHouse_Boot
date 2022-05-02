@@ -23,8 +23,8 @@
 	<div class="container">
 		<div class="row gy-4 justify-content-center">
 			<div class="col-lg-8 pages-details-info p-3">
-				<form id="form" action="" method="Post" class="bg-white rounded shadow-5-strong p-5">
-					<div class="row">
+				<form id="form" action="" method="Post" class="bg-white rounded shadow-5-strong pt-5 pr-5 pl-5">
+					<div class="row mb-3">
 						<div class="box mb-5" style="background: #BDBDBD; margin:auto;">
 							<img class="profile" src="${root}/img/profile.png">
 						</div>
@@ -53,7 +53,7 @@
 							
 						</div>
 					</div>
-					<div class="d-grid gap-2 d-flex flex-row justify-content-between">
+					<div class="d-grid gap-2 d-flex flex-row justify-content-between mt-5">
 						<button type="button" id="deleteBtn" class="btn btn-secondary">탈퇴하기</button>
 						<button type="button" id="updateBtn" class="btn btn-warning">수정하기</button>
 					</div>
