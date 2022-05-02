@@ -126,13 +126,13 @@ tr.colored:hover td{
 
 .pagination li.active>a{
   background-color: gray !important;
-  border-color: gray !important;
+  border-color: lightgrey !important;
   color: white;
 }
 
 .pagination a:hover:not(.active) {
 	color: black;
-	background-color: silver;
+	background-color: orange !important;
 }
 </style>
 
