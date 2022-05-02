@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <title>아파트 거래정보</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<link rel="stylesheet" href="${root}/css/apt.css">
 
 <!-- ======= 페이지 제목 섹션 Start ======= -->
 <section class="PageTitle">
@@ -150,8 +151,10 @@
 						$.get(root + "/apt/aptName"
 								,{dong: $("#dong").val(), aptName:$("#aptName").val()}
 								,function(data, status){
+									var isValid = 0;
 									$("#searchResult").empty();
 									$.each(data, function(index, vo) {
+										isValid = isValid+1;
 										let str = `
 											<tr class="${colorArr[index%3]}">
 											<td>${'${vo.aptCode}'}</td>
@@ -164,7 +167,11 @@
 										$("#searchResult").append(str);
 						
 									});
-									displayMarkers(data);
+									if(isValid!=0){
+										displayMarkers(data);
+									}else{
+										removeMarker();
+									}
 								}
 								, "json"
 						);
