@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.happyhouse.model.mapper.NoticeMapper">
+
+	<insert id="registerNotice" parameterType="NoticeDto">
+		insert into notice (userId, subject, content)
+		values (#{userId}, #{subject}, #{content})
+	</insert>
+
+	<sql id="search">
+		<if test="word != null and word != ''">
+			<choose>
+				<when test="key.equals('all')">
+					subject like concat('%', #{word}, '%') or content like concat('%', #{word}, '%')
+				</when>
+				<when test="key.equals('subject')">
+					subject like concat('%', #{word}, '%')
+				</when>
+				<when test="key.equals('content')">
+					content like concat('%', #{word}, '%')
+				</when>
+			</choose>
+		</if>
+	</sql>
+	
+	<select id="listNotice" parameterType="map" resultType="noticeDto">
+		select *
+		from notice
+		<where>
+			<include refid="search"></include>
+		</where>		
+		order by regtime desc
+		limit #{start}, #{spp}
+	</select>
+
+	<select id="getTotalCount" parameterType="map" resultType="integer">
+		select count(*)
+		from notice
+		<where>
+			<include refid="search"></include>
+		</where>		
+	</select>
+	
+	<select id="getNotice" parameterType="integer" resultType="NoticeDto">
+		select *
+		from notice
+		where articleno = #{noticeNo}
+	</select>
+	
+	<update id="updateNotice" parameterType="NoticeDto">
+		update notice
+		set subject = #{subject}, content = #{content}
+		where articleno = #{articleNo}
+	</update>
+	
+	<delete id="deleteNotice" parameterType="integer">
+		delete from notice
+		where articleno = #{noticeNo}
+	</delete>
+</mapper>
