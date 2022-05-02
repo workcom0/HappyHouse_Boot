@@ -42,16 +42,7 @@
 							<button class="btn btn-secondary btn-xs">검색</button>
 						</form>
 					</div>
-
-					<div class="row" style="width: 100px;">
-						<c:if test="${not empty userInfo}">
-							<c:if test='${userInfo.name eq "관리자"}'>
-								<button type="button" id="mvRegisterBtn" class="btn btn-secondary btn-xs">글쓰기</button>
-							</c:if>
-						</c:if>
-					</div>
-					<br>
-					
+				
 					<table class="table">
 						<tr>
 							<th style="width:10%">No</th>
@@ -67,8 +58,17 @@
 								<td>${notice.regTime}</td>
 							</tr>
 						</c:forEach>
-					</table>					
-				</div>
+					</table>
+					
+					<div class="row mt-2 mx-1" style="width: 100px; float:right;">
+						<c:if test="${not empty userInfo}">
+							<c:if test='${userInfo.name eq "관리자"}'>
+								<button type="button" id="mvRegisterBtn" class="btn btn-secondary btn-xs">글쓰기</button>
+							</c:if>
+						</c:if>
+					</div>
+					<br>	
+				</div>	
 			</div>
 			<div align="center" class="m-3 row justify-content-center" style="margin: auto">${navigation.navigator}</div>
 		</div>
