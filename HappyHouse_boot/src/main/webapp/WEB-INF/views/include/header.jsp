@@ -36,7 +36,6 @@
   	<!-- Bootstrap CSS Files -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="${root}/css/bootstrap.css">
-    <link rel="stylesheet" href="${root}/css/apt.css">
         
     <!-- Bootstrap JS File -->
   	<script src="${root}/js/bootstrap.js"></script>
