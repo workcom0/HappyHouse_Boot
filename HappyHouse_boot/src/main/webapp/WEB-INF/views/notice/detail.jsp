@@ -23,7 +23,7 @@
 <!-- ======= 공지사항 detail Start ======= -->
 <section id="pages-details" class="pages-details">
 	<div class="container">
-		<div class="col-lg-6" align="center" style="margin: auto">
+		<div class="col-lg-12" align="center" style="margin: auto">
 
 			<div class="card-body">
 				<div>
