@@ -133,27 +133,42 @@
 					);
 				});				
 				$(document).on("click", "#aptNameSearchBtn", function() {
-					$.get(root + "/apt/aptName"
-							,{dong: $("#dong").val(), aptName:$("#aptName").val()}
-							,function(data, status){
-								$("#searchResult").empty();
-								$.each(data, function(index, vo) {
-									let str = `
-										<tr class="${colorArr[index%3]}">
-										<td>${'${vo.aptCode}'}</td>
-										<td>${'${vo.aptName}'}</td>
-										<td>${'${vo.sidoName}'} ${'${vo.gugunName}'} ${'${vo.dongName}'} ${'${vo.jibun}'}</td>
-										<td>${'${vo.buildYear}'}</td>
-										<td>${'${vo.recentPrice}'}</td>
-										<tr>
-									`;
-									$("#searchResult").append(str);
+					var sido = $("#sido").val();
+					var gugun = $("#gugun").val();
+					var dong = $("#dong").val();
 					
-								});
-								displayMarkers(data);
-							}
-							, "json"
-					);
+					if(sido==0){
+						alert("시도를 선택해주세요.");
+						return;
+					}else if(gugun==0){
+						alert("구군을 선택해주세요.");
+						return;
+					}else if(dong==0){
+						alert("동을 선택해주세요.");
+						return;
+					}else{			
+						$.get(root + "/apt/aptName"
+								,{dong: $("#dong").val(), aptName:$("#aptName").val()}
+								,function(data, status){
+									$("#searchResult").empty();
+									$.each(data, function(index, vo) {
+										let str = `
+											<tr class="${colorArr[index%3]}">
+											<td>${'${vo.aptCode}'}</td>
+											<td>${'${vo.aptName}'}</td>
+											<td>${'${vo.sidoName}'} ${'${vo.gugunName}'} ${'${vo.dongName}'} ${'${vo.jibun}'}</td>
+											<td>${'${vo.buildYear}'}</td>
+											<td>${'${vo.recentPrice}'}</td>
+											<tr>
+										`;
+										$("#searchResult").append(str);
+						
+									});
+									displayMarkers(data);
+								}
+								, "json"
+						);
+					}
 				});
 				/*
 				$(document).on("click", "#aptSearchBtn", function() {
