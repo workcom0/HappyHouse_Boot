@@ -110,8 +110,29 @@ $(document).ready(function () {
 
 <style>
 tr.colored:hover td{
-  background-color:#f3e9e9 !important;
+  background-color:lightgrey !important;
   color:#303f39 !important;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+
+}
+
+.pagination li.active>a{
+  background-color: gray !important;
+  border-color: gray !important;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+	color: black;
+	background-color: silver;
 }
 </style>
 
